@@ -24,7 +24,7 @@ b) Clonar este repositorio localmente en tu computador:
 ```sh
 $ git clone https://github.com/breatheco-de/exercise-queue-management-cli-python
 ```
-
+instalar pip intall pipenv
 2. Intalar las dependencias de los paquetes con el comando`$ pipenv install`
 
 3. Ingresar al entorno con el comando `$ pipenv shell`

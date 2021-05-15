@@ -12,16 +12,33 @@ def print_queue():
     print(queue.get_queue())
 
 def add():
-    pass
+    # Add a phone number 
+    add_telephone_number = input("I need your phone number: ")
+    queue.enqueue(add_telephone_number)
+    print("We have added your phone number")
+    #pass
 
 def dequeue():
-    pass
+    # delete 
+    number = queue.dequeue()
+    send(body="its your turn", to=number)
+    print(number)
+    
+    #pass
 
 def save():
-    pass
+    data = queue.get_queue()
+    with open("data_file.json", "w") as write_file:
+        json.dump(data, write_file)
+    #pass
 
 def load():
-    pass 
+    global queue
+    with open("queue.json", 'r') as f:
+        data = json.load(f)
+        f.close()
+        queue = Queue(mode="FIFO" ,current_queue=data)
+    #pass 
         
     
 print("\nHello, this is the Command Line Interface for a Queue Managment application.")
@@ -42,6 +59,14 @@ What would you like to do (type a number and press Enter)?
     # add your options here using conditionals (if)
     if option == 3:
         print_queue()
+    elif option == 1:
+        add()
+    elif option == 2:
+        dequeue()
+    elif option == 4:
+        save()
+    elif option == 5:
+        load()
     elif option == 6:
         print("Bye bye!")
         stop = True
